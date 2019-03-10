@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: local
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    data: classpath:import.sql
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+
+---
+
+handlebars:
+  suffix: .html
+  cache: false
